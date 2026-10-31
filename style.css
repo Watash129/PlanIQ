@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    --bg-dark: #0b0e28;
+    --text-white: #ffffff;
+    --border-white: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] {
+    --bg: #0b0e28;
+    --text: #ffffff;
+}
+
+[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #111111;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Agrandir', 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+#note-list {
+    width: 280px;
+    border-right: 1px solid #ccc;
+    padding: 16px;
+}
+
+#editor {
+    flex: 1;
+    padding: 16px;
+}
+
+/* ============ Header ============ */
+.site-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 12px 20px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.site-header .header-logo {
+    font-family: 'Horizons', 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+    margin-right: auto;
+}
+
+.site-header .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.site-header .header-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Agrandir', 'Nunito', sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.site-header .header-nav a:hover {
+    text-decoration: underline;
+}
+
+.site-header .header-search {
+    position: relative;
+}
+
+.site-header .header-search .fa-solid {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.site-header .header-search input {
+    font-family: 'Agrandir', 'Nunito', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 8px 12px 8px 34px;
+    width: 220px;
+}
+
+.site-header .header-search input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============ Theme switch ============ */
+.theme-switch {
+    position: relative;
+    width: 84px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.theme-switch__input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.theme-switch__track {
+    position: absolute;
+    inset: 0;
+    background: #0b0e28;
+    border: 1px solid #ffffff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+}
+
+.theme-switch__thumb {
+    position: absolute;
+    top: 50%;
+    left: 47px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+    z-index: 1;
+}
+
+.theme-switch__input:checked ~ .theme-switch__track .theme-switch__thumb {
+    left: 7px;
+}
+
+.theme-switch__input:focus-visible ~ .theme-switch__track {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.theme-switch__icon {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* ============ Settings gear ============ */
+.settings-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.settings-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.settings-button svg {
+    display: block;
+}
+
+/* ============ Account button ============ */
+.account-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.profile-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0b0e28;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+/* ============ Panels ============ */
+.settings-panel,
+.account-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.settings-panel.open,
+.account-panel.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.settings-panel__content,
+.account-panel__content {
+    background: #0b0e28;
+    color: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 480px;
+    width: 90%;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesTrial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="left">
+            <div class="logo-crop">
+            <img id="plan-iq-logo" src="PlanIQ.png" alt="PlanIQ">
+            </div>
+            
+            <div class="links">
+            <a href="#">Notes</a>
+            <a href="#">Calendar</a>
+            <a href="#">PlanAI</a>
+            <a href="#">Folders</a>
+            </div>
+            </div>
+            <div class="right">
+            <label class="theme-switch" aria-label="Toggle light and dark mode">
+                <input type="checkbox" id="theme-switch" role="switch" aria-checked="true" checked>
+                <span class="theme-switch__track" aria-hidden="true">
+                    <i class="fa-solid fa-sun theme-switch__icon theme-switch__icon--sun"></i>
+                    <span class="theme-switch__thumb"></span>
+                    <i class="fa-solid fa-moon theme-switch__icon theme-switch__icon--moon"></i>
+                </span>
+            </label>
+            <button class="settings-button" id="settings-button" type="button" aria-label="Settings">
+                <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            </button>
+            </div>
+        </header>
+        <div class="main">
+            <div class="notes">
+            <div class="notes-toolbar">
+                <img src="3.png" width="125px">
+                <a class="new-note-button" href="new-note.html"><i class="fa-solid fa-plus" aria-hidden="true"></i> New</a>
+            </div>
+            <div class="drafts-container">
+                <div id="draft-notes" class="notes notes-grid" aria-label="Saved notes" aria-live="polite"></div>
+            </div>
+            
+            </div>
+            <div class="calendar">
+
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

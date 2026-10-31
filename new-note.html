@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Note | PlanIQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="left">
+                <div class="logo-crop"><img id="plan-iq-logo" src="PlanIQ.png" alt="PlanIQ"></div>
+                <nav class="links" aria-label="Main navigation">
+                    <a href="notes.html">Notes</a>
+                    <a href="#">Calendar</a>
+                    <a href="#">PlanAI</a>
+                    <a href="#">Folders</a>
+                </nav>
+            </div>
+            <div class="right">
+                <label class="theme-switch" aria-label="Toggle light and dark mode">
+                    <input type="checkbox" id="theme-switch" role="switch" aria-checked="true" checked>
+                    <span class="theme-switch__track" aria-hidden="true">
+                        <i class="fa-solid fa-sun theme-switch__icon theme-switch__icon--sun"></i>
+                        <span class="theme-switch__thumb"></span>
+                        <i class="fa-solid fa-moon theme-switch__icon theme-switch__icon--moon"></i>
+                    </span>
+                </label>
+                <button class="settings-button" id="settings-button" type="button" aria-label="Settings">
+                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                </button>
+            </div>
+        </header>
+        <main class="drafts">
+            <h1>New note</h1>
+            <form id="note-form" class="note-form">
+                <label for="note-title">Title</label>
+                <input id="note-title" name="title" type="text" placeholder="Untitled note">
+                <label for="note-content">Note</label>
+                <textarea id="note-content" name="content" rows="8" placeholder="Write a note..." required></textarea>
+                <div class="note-form-actions">
+                    <a class="cancel-note-button" href="notes.html">Cancel</a>
+                    <button type="submit">Save draft</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
