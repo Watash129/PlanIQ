@@ -541,6 +541,7 @@ body{
     color: color-mix(in srgb, var(--text-color) 72%, transparent);
     font-size: 12px;
     line-height: 1.4;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
