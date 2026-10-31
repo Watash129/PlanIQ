@@ -71,7 +71,8 @@ function renderDrafts() {
     }
 
     drafts.forEach((draft) => {
-        const card = document.createElement("article");
+        const card = document.createElement("button");
+        card.type = "button";
         card.className = "note-card";
         const heading = document.createElement("h2");
         heading.textContent = draft.title || "Untitled note";

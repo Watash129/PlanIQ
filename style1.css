@@ -415,6 +415,29 @@ body{
     background: rgb(255 255 255 / 8%);
 }
 
+.note-card {
+    width: 100%;
+    border: 1px solid transparent;
+    background: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--page-start) 65%, transparent),
+        color-mix(in srgb, var(--page-end) 65%, transparent)
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.note-card:hover,
+.note-card:focus-visible {
+    border-color: rgb(255 255 255 / 55%);
+    transform: translateY(-4px);
+}
+
 .note-card h2 {
     margin: 0 0 8px;
     font-size: 16px;
@@ -459,7 +482,8 @@ body{
 
 .main {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    column-gap: 24px;
     align-items: stretch;
     margin-top: 40px;
 }
@@ -468,7 +492,19 @@ body{
     min-width: 0;
     width: auto;
     margin: 0;
-    padding: 24px;
+    padding: 12px 32px 24px 16px;
+}
+
+.notes-toolbar img,
+.calendar-heading-image {
+    display: block;
+    width: 165px;
+    height: auto;
+}
+
+.calendar-heading-image {
+    width: 175px;
+    margin-top: 6px;
 }
 
 .drafts-container {
@@ -478,31 +514,47 @@ body{
 .main > .calendar {
     position: relative;
     min-width: 0;
-    padding: 24px;
-}
-
-.main > .calendar::before {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: 70%;
-    border-left: 1px solid color-mix(in srgb, var(--field-border) 15%, transparent);
-    content: "";
-    transform: translateY(-50%);
+    padding: 12px 0 24px 16px;
+    border-left: 1px solid color-mix(in srgb, var(--field-border) 30%, transparent);
 }
 
 .main > .notes .notes-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+}
+
+.main > .notes .note-card {
+    min-height: 138px;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.main > .notes .note-card h2 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.main > .notes .note-card p {
+    display: -webkit-box;
+    overflow: hidden;
+    color: color-mix(in srgb, var(--text-color) 72%, transparent);
+    font-size: 12px;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 
 @media (max-width: 700px) {
     .main {
         grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        margin-top: 32px;
     }
 
     .main > .notes {
-        padding: 20px 0;
+        padding: 12px 0 24px;
+        border-right: 0;
     }
 
     .drafts-container {
@@ -511,11 +563,8 @@ body{
 
     .main > .calendar {
         border-top: 1px solid var(--field-border);
+        border-left: 0;
         padding: 20px 0;
-    }
-
-    .main > .calendar::before {
-        display: none;
     }
 
     .main > .notes .notes-grid {
